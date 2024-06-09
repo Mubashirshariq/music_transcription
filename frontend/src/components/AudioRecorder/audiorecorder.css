@@ -1,0 +1,97 @@
+.audio-recorder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mic-toggle {
+  position: relative;
+  display: block;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  background-color: crimson;
+  margin-bottom: 2rem;
+}
+
+.mic-toggle:after,
+.mic-toggle:before {
+  --pad: 0rem;
+  content: '';
+  display: block;
+  position: absolute;
+  z-index: 0;
+  background-color: rgba(220, 20, 60, 0.2);
+  top: var(--pad);
+  left: var(--pad);
+  right: var(--pad);
+  bottom: var(--pad);
+  border-radius: 50%;
+}
+
+.mic-toggle:after {
+  transition: 0.4s;
+}
+
+.mic-toggle:before {
+  transition: 0.2s;
+}
+
+.mic-toggle:hover:before {
+  --pad: -1rem;
+}
+
+.mic-toggle:hover:after {
+  --pad: -2rem;
+}
+
+.mic-toggle span {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  font-size: 6rem;
+}
+
+.mic-toggle.is-recording:after {
+  animation: smoothPadAfter 0.6s ease-in alternate-reverse forwards infinite;
+}
+
+.mic-toggle.is-recording:before {
+  animation: smoothPadBefore 0.6s ease-in alternate-reverse forwards infinite;
+}
+
+@keyframes smoothPadAfter {
+  0% {
+    top: -2rem;
+    left: -2rem;
+    right: -2rem;
+    bottom: -2rem;
+  }
+  100% {
+    top: -1rem;
+    left: -1rem;
+    right: -1rem;
+    bottom: -2rem;
+  }
+}
+
+@keyframes smoothPadBefore {
+  0% {
+    top: -1rem;
+    left: -1rem;
+    right: -1rem;
+    bottom: -1rem;
+  }
+  100% {
+    top: -0.5rem;
+    left: -0.5rem;
+    right: -0.5rem;
+    bottom: -0.5rem;
+  }
+}
+
+.playback {
+  margin-bottom: 1rem;
+  box-shadow: 0px 0px 1rem rgba(0, 0, 0, 0.2);
+  border-radius: 999px;
+}
