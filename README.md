@@ -26,7 +26,8 @@ This repository contains a web application for music transcription. The frontend
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/yourusername/music-transcription.git
+    git clone https://github.com/yourusername/music_transcription.git
+    cd music_transcription
     ```
 
 2. Navigate to the `frontend` directory:
@@ -45,10 +46,11 @@ This repository contains a web application for music transcription. The frontend
     ```
 
 ### Backend Setup
-
+Now create one more terminal to run the backend
 1. Navigate to the `backend` directory:
     ```sh
-    cd ../backend
+    cd music_transcription
+    cd backend
     ```
 
 2. Create a virtual environment:
