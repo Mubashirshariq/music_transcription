@@ -90,13 +90,11 @@ Once both the frontend and backend servers are running, you can access the appli
 2. The backend will process the audio and transcribe it to a MIDI file.
 3. The midi file is saved in MIDI folder inside the backend folder as of now.
 
-## Contributing
 
-Contributions are welcome! Please fork this repository and submit a pull request for any changes you'd like to make.
 
 ## License
 
-This project is licensed under the GNU Public License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the GNU Public License. See the [LICENSE](LICENSE.md) file for details.
 
 ## Acknowledgments
 
