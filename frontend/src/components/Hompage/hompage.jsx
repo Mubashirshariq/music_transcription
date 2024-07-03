@@ -9,12 +9,9 @@ const HomePage = () => {
     <div className="home-page">
       <div className="card">
         <AudioRecorder />
-        <h2 className='text-black text-2xl font-semibold mt-10'>Record Audio</h2>
-        
       </div>
       <div className="card" >
         <Upload />
-        <h2 className='text-black text-2xl font-semibold mt-11'>Upload Audio</h2>
       </div>
       
     </div>

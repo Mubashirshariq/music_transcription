@@ -28,6 +28,11 @@
 
 .upload-input {
   margin-right: 10px;
+  margin-top: 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
 }
 
 .upload-button {
@@ -35,6 +40,7 @@
   color: white;
   border: none;
   border-radius: 4px;
+  margin-top: 3rem;
   padding: 10px 10px;
   cursor: pointer;
   transition: background-color 0.2s;

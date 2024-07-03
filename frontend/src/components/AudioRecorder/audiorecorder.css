@@ -4,6 +4,19 @@
   align-items: center;
 }
 
+.upload-button-recorder {
+  background-color: crimson;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 10px;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+}
+
+
 .mic-toggle {
   position: relative;
   display: block;

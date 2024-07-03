@@ -1,0 +1,4 @@
+fastapi
+uvicorn
+basic_pitch
+pathlib

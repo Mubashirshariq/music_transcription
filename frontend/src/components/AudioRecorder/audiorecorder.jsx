@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { MediaRecorder,register } from 'extendable-media-recorder';
+import { MediaRecorder, register } from 'extendable-media-recorder';
 import { connect } from 'extendable-media-recorder-wav-encoder';
 import './audiorecorder.css';
 import axios from 'axios';
@@ -12,7 +12,9 @@ const AudioRecorder = () => {
   const [uploadStatus, setUploadStatus] = useState('');
   const recorderRef = useRef(null);
   const chunksRef = useRef([]);
-  const base_url='http://127.0.0.1:8000/';
+  const audioBlobRef = useRef(null); // To store the latest audio blob
+  const base_url = 'http://127.0.0.1:8000/';
+
   useEffect(() => {
     setUpAudio();
   }, []);
@@ -32,7 +34,7 @@ const AudioRecorder = () => {
           chunksRef.current = [];
           let audioURL = URL.createObjectURL(blob);
           setAudioURL(audioURL);
-          uploadAudio(blob);
+          audioBlobRef.current = blob; // Save the latest audio blob
         };
         setCanRecord(true);
       } catch (err) {
@@ -51,29 +53,30 @@ const AudioRecorder = () => {
     }
   };
 
-  const uploadAudio = async (blob) => {
-    setIsUploading(true);
-    setUploadStatus('Uploading...');
-  
-      const formData = new FormData();
-      formData.append('audio', blob, 'recording.wav');
+  const uploadAudio = async () => {
+    if (!audioBlobRef.current) return; // If no audio has been recorded yet
 
-      axios.post(`${base_url}uploadaudio/`, formData, {
+    setIsUploading(true);
+    setUploadStatus('Uploading...'); // Set the status to "Uploading..." at the start
+
+    const formData = new FormData();
+    formData.append('audio', audioBlobRef.current, 'recording.wav');
+
+    try {
+      const response = await axios.post(`${base_url}uploadaudio/`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
-      })
-        .then(response => {
-          console.log(response);
-          setUploadStatus('Upload successful!');
-        })
-        .catch(error => {
-          console.log(error);
-          setUploadStatus('Upload failed!');
-        });
-      }
-      
-
+      });
+      console.log(response);
+      setUploadStatus('Upload successful!'); 
+    } catch (error) {
+      console.log(error);
+      setUploadStatus('Upload failed!'); 
+    } finally {
+      setIsUploading(false);
+    }
+  };
 
   return (
     <div className="audio-recorder">
@@ -81,7 +84,8 @@ const AudioRecorder = () => {
         <span className="material-icons">mic</span>
       </button>
       <audio className="playback" controls src={audioURL}></audio>
-      {isUploading && <p>{uploadStatus}</p>}
+      <button className='upload-button-recorder' onClick={uploadAudio} disabled={isUploading || !audioBlobRef.current}>Convert to Music Blocks</button>
+      <p>{uploadStatus}</p>
     </div>
   );
 };

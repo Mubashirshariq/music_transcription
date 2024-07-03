@@ -41,8 +41,8 @@ const Upload = () => {
       <form onSubmit={handleSubmit} className='upload-form'>
         <div className="upload-input">
           <input type="file" onChange={handleChange} />
-          <button  className="mt-40 upload-button" type="submit">
-            <span className="material-icons">cloud_upload</span> Upload
+          <button  className="upload-button" type="submit">
+           Convert to Music Blocks
           </button>
           {uploadStatus && <p>{uploadStatus}</p>}
         </div>
