@@ -26,7 +26,8 @@ This repository contains a web application for music transcription. The frontend
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/yourusername/music-transcription.git
+    git clone https://github.com/yourusername/music_transcription.git
+    cd music_transcription
     ```
 
 2. Navigate to the `frontend` directory:
@@ -45,10 +46,11 @@ This repository contains a web application for music transcription. The frontend
     ```
 
 ### Backend Setup
-
+Now create one more terminal to run the backend
 1. Navigate to the `backend` directory:
     ```sh
-    cd ../backend
+    cd music_transcription
+    cd backend
     ```
 
 2. Create a virtual environment:
@@ -88,13 +90,11 @@ Once both the frontend and backend servers are running, you can access the appli
 2. The backend will process the audio and transcribe it to a MIDI file.
 3. The midi file is saved in MIDI folder inside the backend folder as of now.
 
-## Contributing
 
-Contributions are welcome! Please fork this repository and submit a pull request for any changes you'd like to make.
 
 ## License
 
-This project is licensed under the GNU Public License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the GNU Public License. See the [LICENSE](LICENSE.md) file for details.
 
 ## Acknowledgments
 
