@@ -1,4 +1,4 @@
 fastapi
 uvicorn
-basic_pitch
+basic_pitch[all]
 pathlib

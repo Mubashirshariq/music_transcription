@@ -42,7 +42,7 @@ const Upload = () => {
         <div className="upload-input">
           <input type="file" onChange={handleChange} />
           <button  className="upload-button" type="submit">
-           Convert to Music Blocks
+           Convert to MIDI
           </button>
           {uploadStatus && <p>{uploadStatus}</p>}
         </div>

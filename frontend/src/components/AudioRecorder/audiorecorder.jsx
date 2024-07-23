@@ -84,7 +84,7 @@ const AudioRecorder = () => {
         <span className="material-icons">mic</span>
       </button>
       <audio className="playback" controls src={audioURL}></audio>
-      <button className='upload-button-recorder' onClick={uploadAudio} disabled={isUploading || !audioBlobRef.current}>Convert to Music Blocks</button>
+      <button className='upload-button-recorder' onClick={uploadAudio} disabled={isUploading || !audioBlobRef.current}>Convert to MIDI</button>
       <p>{uploadStatus}</p>
     </div>
   );
